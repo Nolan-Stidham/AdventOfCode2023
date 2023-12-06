@@ -1,4 +1,4 @@
-# AdventOfCode2023
+# Advent of Code (2023)
 My solutions and notes for Advent of Code 2023
 
 ## Day 1 - Trebuchet

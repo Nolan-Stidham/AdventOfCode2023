@@ -5,9 +5,14 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trebuchet", "Trebuchet\Trebuchet.csproj", "{9DC34F6E-FA37-4862-9524-6B336D25D83B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeConundrum", "CubeConundrum\CubeConundrum.csproj", "{53A5FAA2-4482-4D29-A5BE-FB6643E18E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CubeConundrum", "CubeConundrum\CubeConundrum.csproj", "{53A5FAA2-4482-4D29-A5BE-FB6643E18E92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Template.csproj", "{C02E3BAE-7356-42E0-AE19-8DE6B740E6A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template", "Template\Template.csproj", "{C02E3BAE-7356-42E0-AE19-8DE6B740E6A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9AF40D6E-85E2-44D6-A983-C510D761E405}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

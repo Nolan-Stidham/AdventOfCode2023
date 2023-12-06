@@ -28,6 +28,7 @@
 	{
 		var gameNum = int.Parse(inputLine.Split(':')[0].Split(' ')[1]);
 		var sets = inputLine.Split(':')[1].Split(";");
+		var minRequiredColors = new Dictionary<string, int>() {{"red", 0}, {"blue", 0}, {"green", 0}};
 		
 		foreach (var set in sets )
 		{
@@ -40,41 +41,23 @@
                 cubesByColor.Add(color, number);
             }
 
-			if(!IsValidSet(cubesByColor))
-				return 0;
+			minRequiredColors = UpdateMinRequiredColors(minRequiredColors, cubesByColor);
         }
 		
-		return gameNum;
+		return minRequiredColors.Aggregate(1, (previous,kvp) => previous * kvp.Value);
 	}
 
-	private static bool IsValidSet(Dictionary<string, int> cubesByColor)
+	private static Dictionary<string, int> UpdateMinRequiredColors(Dictionary<string, int> currentMin, Dictionary<string, int> newMin)
 	{
-		foreach (var cube in cubesByColor)
+		var result = new Dictionary<string, int>();
+		foreach (var (color, currentMinValue) in currentMin)
 		{
-			bool isCubeCountValid;
-			switch (cube.Key)
-			{
-				case "red": 
-					isCubeCountValid = cube.Value <= c_maxRed;
-					break;
-				case "green":
-					isCubeCountValid = cube.Value <= c_maxGreen;
-					break;
-				case "blue":
-					isCubeCountValid = cube.Value <= c_maxBlue;
-					break;
-				default:
-					throw new Exception($"Color {cube.Key} is invalid");
-			}
-
-			if (!isCubeCountValid) return false;
+			if (!newMin.TryGetValue(color, out int newMinValue))
+				result.Add(color, currentMinValue);
+			else
+				result.Add(color, Math.Max(currentMinValue, newMinValue));
 		}
 
-		return true;
+		return result;
 	}
-
-
-	private const int c_maxRed = 12;
-	private const int c_maxGreen = 13;
-	private const int c_maxBlue = 14;
 }
